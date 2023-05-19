@@ -1,7 +1,7 @@
 # Sort analog 
 
-Fun typing game for beginners.</br> 
-Keyboard Ninja gives you easy, medium, or hard typing practice so you can improve your typing skills. </br>
+Console sort function.</br> 
+it kinda old but good for sorting simple text files. </br>
 
 # Description
 
