@@ -20,7 +20,7 @@ make
 make run
 # if it`s your first time runnig the program type
 sort --help
-#do keep in mind that .txt files should be in repository, or you will have to write  filepath/name.txt as a filename
+#do keep in mind that that it will run in passive mode, in console. If you want to stop program, press ctrl+c
 #this should be enough to get you started )
 #if you`re strugling got to 
 [aidalinux]:https://aidalinux.ru/w/Sort
