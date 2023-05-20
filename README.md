@@ -1,7 +1,7 @@
 # Sort analog 
 
 Console sort function.</br> 
-it kinda old but good for sorting simple text files. </br>
+it s 50 years old but good for sorting simple text files. </br>
 
 # Description
 
