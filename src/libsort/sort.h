@@ -13,8 +13,8 @@
 
 inline void sortVector(
         std::vector<std::string>& vec,
-        bool (*sortPredicate)(const std::string&, const std::string&)
-        = nullptr) {
+        bool (*sortPredicate)(const std::string&, const std::string&) = nullptr)
+{
     if (sortPredicate) {
         std::sort(vec.begin(), vec.end(), sortPredicate);
     } else {
@@ -22,12 +22,14 @@ inline void sortVector(
     }
 }
 
-inline bool isFileName(const std::string& str) {
+inline bool isFileName(const std::string& str)
+{
     std::ifstream file(str);
     return file.good();
 }
 
-inline std::string removeLeadingNonPrintableChars(const std::string& str) {
+inline std::string removeLeadingNonPrintableChars(const std::string& str)
+{
     std::string cleanStr = str;
 
     // Удаление ведущих пробелов
@@ -42,14 +44,16 @@ inline std::string removeLeadingNonPrintableChars(const std::string& str) {
 
 // -b
 inline bool
-ignoreLeadingSpaces(const std::string& str1, const std::string& str2) {
+ignoreLeadingSpaces(const std::string& str1, const std::string& str2)
+{
     size_t index1 = str1.find_first_not_of(' ');
     size_t index2 = str2.find_first_not_of(' ');
     return str1.substr(index1) < str2.substr(index2);
 }
 
 // -c
-inline bool checkSorted(std::vector<std::string>& lines) {
+inline bool checkSorted(std::vector<std::string>& lines)
+{
     if (std::is_sorted(lines.begin(), lines.end())) {
         return true;
     } else {
@@ -59,7 +63,8 @@ inline bool checkSorted(std::vector<std::string>& lines) {
 
 // -d
 inline bool
-dictionaryOrderCompare(const std::string& str1, const std::string& str2) {
+dictionaryOrderCompare(const std::string& str1, const std::string& str2)
+{
     size_t i = 0;
     size_t j = 0;
     while (i < str1.length() && j < str2.length()) {
@@ -84,7 +89,8 @@ dictionaryOrderCompare(const std::string& str1, const std::string& str2) {
 
 // -f
 inline bool
-caseInsensitiveCompare(const std::string& str1, const std::string& str2) {
+caseInsensitiveCompare(const std::string& str1, const std::string& str2)
+{
     size_t length = std::min(str1.length(), str2.length());
     for (size_t i = 0; i < length; ++i) {
         if (std::tolower(str1[i]) != std::tolower(str2[i])) {
@@ -96,7 +102,8 @@ caseInsensitiveCompare(const std::string& str1, const std::string& str2) {
 
 // -g
 inline bool
-ignorePunctuationAndSpaces(const std::string& str1, const std::string& str2) {
+ignorePunctuationAndSpaces(const std::string& str1, const std::string& str2)
+{
     std::locale loc;
     auto isPunctuationOrSpace = [&](char c) {
         return std::ispunct(c, loc) || std::isspace(c, loc);
@@ -110,7 +117,8 @@ ignorePunctuationAndSpaces(const std::string& str1, const std::string& str2) {
 }
 
 // -h
-inline long long extractValue(const std::string& str) {
+inline long long extractValue(const std::string& str)
+{
     long long value = std::stoll(str.substr(
             0, str.length() - 1)); // Извлечение числового значения без суффикса
     char suffix = str.back();      // Извлечение суффикса
@@ -134,7 +142,8 @@ inline long long extractValue(const std::string& str) {
 }
 
 inline bool
-humanNumericCompare(const std::string& str1, const std::string& str2) {
+humanNumericCompare(const std::string& str1, const std::string& str2)
+{
     long long value1 = extractValue(str1);
     long long value2 = extractValue(str2);
 
@@ -142,7 +151,8 @@ humanNumericCompare(const std::string& str1, const std::string& str2) {
 }
 
 // --help
-inline void displayHelp() {
+inline void displayHelp()
+{
     std::cout << "Usage: program [OPTIONS] FILE" << std::endl;
     std::cout << "Options:" << std::endl;
     std::cout << "  -n                Sort in numeric order" << std::endl;
@@ -172,7 +182,8 @@ inline void displayHelp() {
 }
 
 // -i
-inline bool isPrintable(const std::string& str1, const std::string& str2) {
+inline bool isPrintable(const std::string& str1, const std::string& str2)
+{
     for (char c : str1) {
         if (!std::isprint(c)) {
             return false;
@@ -182,9 +193,11 @@ inline bool isPrintable(const std::string& str1, const std::string& str2) {
 }
 
 // -k
-inline void processKFlag(int columnIndex, std::vector<std::string>& lines) {
+inline void processKFlag(int columnIndex, std::vector<std::string>& lines)
+{
     std::sort(
-            lines.begin(), lines.end(),
+            lines.begin(),
+            lines.end(),
             [columnIndex](const std::string& line1, const std::string& line2) {
                 std::istringstream iss1(line1);
                 std::istringstream iss2(line2);
@@ -210,7 +223,8 @@ inline void processKFlag(int columnIndex, std::vector<std::string>& lines) {
 }
 
 inline void
-kSortVector(std::vector<std::string>& lines, std::vector<std::string>& flags) {
+kSortVector(std::vector<std::string>& lines, std::vector<std::string>& flags)
+{
     auto it = std::find_if(
             flags.begin(), flags.end(), [](const std::string& flag) {
                 return flag.size() >= 2 && flag.substr(0, 2) == "-k";
@@ -227,11 +241,21 @@ kSortVector(std::vector<std::string>& lines, std::vector<std::string>& flags) {
 }
 
 // -M
-inline bool
-monthOrderCompare(const std::string& str1, const std::string& str2) {
+inline bool monthOrderCompare(const std::string& str1, const std::string& str2)
+{
     const std::vector<std::string> months
-            = {"JAN", "FEB", "MAR", "APR", "MAY", "JUN",
-               "JUL", "AUG", "SEP", "OCT", "NOV", "DEC"};
+            = {"JAN",
+               "FEB",
+               "MAR",
+               "APR",
+               "MAY",
+               "JUN",
+               "JUL",
+               "AUG",
+               "SEP",
+               "OCT",
+               "NOV",
+               "DEC"};
 
     std::string upperStr1 = str1;
     std::transform(
@@ -255,18 +279,21 @@ monthOrderCompare(const std::string& str1, const std::string& str2) {
 }
 
 // -n
-inline bool isNumeric(const std::string& str) {
+inline bool isNumeric(const std::string& str)
+{
     std::string cleanStr = str;
     cleanStr.erase(
             std::remove_if(
-                    cleanStr.begin(), cleanStr.end(),
+                    cleanStr.begin(),
+                    cleanStr.end(),
                     [](unsigned char c) { return !std::isdigit(c); }),
             cleanStr.end());
     return !cleanStr.empty();
 }
 
 inline bool
-numericOrderCompare(const std::string& str1, const std::string& str2) {
+numericOrderCompare(const std::string& str1, const std::string& str2)
+{
     if (isNumeric(str1) && isNumeric(str2)) {
         return std::stoi(str1) < std::stoi(str2);
     } else {
@@ -275,24 +302,28 @@ numericOrderCompare(const std::string& str1, const std::string& str2) {
 }
 
 // -r
-inline void reverseSort(std::vector<std::string>& lines) {
+inline void reverseSort(std::vector<std::string>& lines)
+{
     std::reverse(lines.begin(), lines.end());
 }
 
 // -R
-inline void randomSort(std::vector<std::string>& lines) {
+inline void randomSort(std::vector<std::string>& lines)
+{
     unsigned seed = std::chrono::system_clock::now().time_since_epoch().count();
     std::default_random_engine gen(seed);
     std::shuffle(lines.begin(), lines.end(), gen);
 }
 
 // --randon-source
-inline void randomSort(std::vector<std::string>& lines, std::mt19937& gen) {
+inline void randomSort(std::vector<std::string>& lines, std::mt19937& gen)
+{
     std::shuffle(lines.begin(), lines.end(), gen);
 }
 
 inline void
-randomSort(std::vector<std::string>& lines, std::string& randomSourceFile) {
+randomSort(std::vector<std::string>& lines, std::string& randomSourceFile)
+{
     if (randomSourceFile.empty()) {
         std::cerr << "Error: --random-source option is missing the file path."
                   << std::endl;
@@ -320,7 +351,8 @@ randomSort(std::vector<std::string>& lines, std::string& randomSourceFile) {
 }
 
 inline void
-randomSort(std::vector<std::string>& lines, std::vector<std::string>& flags) {
+randomSort(std::vector<std::string>& lines, std::vector<std::string>& flags)
+{
     auto itf = std::find_if(
             flags.begin(), flags.end(), [](const std::string& flag) {
                 return flag.find("--random-source=") != std::string::npos;
@@ -336,7 +368,8 @@ randomSort(std::vector<std::string>& lines, std::vector<std::string>& flags) {
 }
 
 // -u
-inline void uniqueSort(std::vector<std::string>& lines) {
+inline void uniqueSort(std::vector<std::string>& lines)
+{
     sortVector(lines);
     lines.erase(
             std::unique(lines.begin(), lines.end()),
@@ -345,7 +378,8 @@ inline void uniqueSort(std::vector<std::string>& lines) {
 
 // -V
 inline bool
-versionCompare(const std::string& version1, const std::string& version2) {
+versionCompare(const std::string& version1, const std::string& version2)
+{
     std::vector<int> v1, v2;
 
     // Разбиваем версии на компоненты
