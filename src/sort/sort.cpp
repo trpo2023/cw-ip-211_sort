@@ -7,7 +7,7 @@ int main(int argc, char* argv[])
     std::vector<std::string> lines;
     std::vector<std::string> flags;
 
-    // Проверка аргументов командной строки и установка флагов
+    // Проверка аргумёнтов командной строки и установка флагов
         for (int i = 1; i < argc; ++i) {
         std::string arg(argv[i]);
         if (arg.substr(0, 1) == "-") {
