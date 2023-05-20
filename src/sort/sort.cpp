@@ -1,14 +1,13 @@
 #include "../libsort/sort.h"
 
-int main(int argc, char* argv[])
-{
+int main(int argc, char* argv[]) {
     // Переменная для хранения флагов
     std::vector<std::string> files;
     std::vector<std::string> lines;
     std::vector<std::string> flags;
 
     // Проверка аргументов командной строки и установка флагов
-        for (int i = 1; i < argc; ++i) {
+    for (int i = 1; i < argc; ++i) {
         std::string arg(argv[i]);
         if (arg.substr(0, 1) == "-") {
             flags.push_back(arg);
@@ -23,7 +22,7 @@ int main(int argc, char* argv[])
     }
 
     // Объединение и сортировка файлов, если указаны файлы в аргументах
-      // командной строки
+    // командной строки
     if (!files.empty()) {
         // Чтение данных из файлов
         for (int i = 0; i < files.size(); ++i) {
@@ -35,7 +34,7 @@ int main(int argc, char* argv[])
                     lines.push_back(line);
                 }
 
-               } else {
+            } else {
                 std::cerr << "Error: file " << files[i] << " not found\n";
             }
             file.close();
@@ -95,7 +94,7 @@ int main(int argc, char* argv[])
         reverseSort(lines);
     }
 
-     // Вывод отсортированных данных в стандартный вывод
+    // Вывод отсортированных данных в стандартный вывод
     for (const auto& sortedLine : lines) {
         std::cout << sortedLine << '\n';
     }
