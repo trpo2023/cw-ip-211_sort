@@ -8,7 +8,7 @@ int main(int argc, char* argv[])
     std::vector<std::string> flags;
 
     // Проверка аргументов командной строки и установка флагов
-     for (int i = 1; i < argc; ++i) {
+        for (int i = 1; i < argc; ++i) {
         std::string arg(argv[i]);
         if (arg.substr(0, 1) == "-") {
             flags.push_back(arg);
@@ -23,7 +23,7 @@ int main(int argc, char* argv[])
     }
 
     // Объединение и сортировка файлов, если указаны файлы в аргументах
-    // командной строки
+      // командной строки
     if (!files.empty()) {
         // Чтение данных из файлов
         for (int i = 0; i < files.size(); ++i) {
