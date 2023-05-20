@@ -6,5 +6,5 @@
 *.a
 *.Identifier
 *.vscode
+sort
 test
-geometry
