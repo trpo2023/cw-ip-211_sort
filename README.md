@@ -19,7 +19,7 @@ make
 # run the program
 ./program
 # if it`s your first time runnig the program type
---help
+sort --help
 #this should be enough to get you started )
 #if you`re strugling got to 
 [aidalinux]:https://aidalinux.ru/w/Sort
