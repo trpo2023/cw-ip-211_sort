@@ -252,9 +252,9 @@ inline bool monthOrderCompare(const std::string &str1,
 inline bool isNumeric(const std::string &str) {
   std::string cleanStr = str;
   cleanStr.erase(
-      std::remove_if(cleanStr.begin(), cleanStr.end(), [](unsigned char c) {
-        return !std::isdigit(c);
-      }), cleanStr.end());
+      std::remove_if(cleanStr.begin(), cleanStr.end(),
+                     [](unsigned char c) { return !std::isdigit(c); }),
+      cleanStr.end());
   return !cleanStr.empty();
 }
 
