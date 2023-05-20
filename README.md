@@ -17,7 +17,7 @@ cd cw-ip-211_sort
 # Run make file
 make
 # run the program
-./program
+make run
 # if it`s your first time runnig the program type
 sort --help
 #this should be enough to get you started )
