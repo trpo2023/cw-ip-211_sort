@@ -153,7 +153,7 @@ humanNumericCompare(const std::string& str1, const std::string& str2)
 // --help
 inline void displayHelp()
 {
-    std::cout << "Usage: program [OPTIONS] FILE" << std::endl;
+    std::cout << "Usage: ./sort [OPTIONS] FILE" << std::endl;
     std::cout << "Options:" << std::endl;
     std::cout << "  -n                Sort in numeric order" << std::endl;
     std::cout << "  -b                Ignore leading spaces when sorting"
