@@ -22,7 +22,7 @@ make run
 ./sort --help
 [aidalinux]:https://aidalinux.ru/w/Sort
 ```
-## For testing
+## For testing (needs googletest)
 ```sh
 # step 1:
 cd
