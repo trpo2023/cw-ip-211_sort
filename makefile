@@ -51,7 +51,10 @@ $(OBJ_DIR)/%.o: %.c
 run:
 	./sort --help
 
+test:
 
+	g++ test_lib/test.cpp -o test -lgtest  -pthread
+	./test
 
 clean:
 	$(RM) obj/src/libsort/*.o
@@ -66,3 +69,4 @@ clean:
 	$(RM) obj/test/*.a
 	$(RM) bin/*.exe
 	$(RM) sort
+	$(RM) test
