@@ -14,5 +14,5 @@ jobs:
 
       - name: Build application
         run: make
-        ignore_errors: |
+        ignore_errors: | 
           (file not found)
