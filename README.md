@@ -20,5 +20,3 @@ make run
 # if it`s your first time runnig the program type
 ./sort --help
 [aidalinux]:https://aidalinux.ru/w/Sort
-
-https://zwarrior.medium.com/install-google-test-framework-gtest-on-ubuntu-20-04-368eb6951b12
