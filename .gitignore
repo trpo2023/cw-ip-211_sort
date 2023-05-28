@@ -1,0 +1,12 @@
+*#Makefile#
+*Makefile~
+*.exe
+*.o
+bin/test
+build/libgtest.a
+*.d
+*.Identifier
+*.vscode
+bin/sort
+*.txt
+*.dat
