@@ -2,8 +2,9 @@
 *Makefile~
 *.exe
 *.o
+bin/test
+build/libgtest.a
 *.d
-*.a
 *.Identifier
 *.vscode
 bin/sort

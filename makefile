@@ -1,7 +1,8 @@
 CC = g++
 CFLAGS = -Wall -Wextra
-CPPFLAGS = -I src -MP -MMD
-
+flags = -Wall -c
+GDIR = test-cover/googletest
+CPPFLAGS += -I src -MP -MMD 
 APP_NAME = sort
 LIB_NAME = libsort
 TEST_NAME = test
@@ -51,10 +52,19 @@ $(OBJ_DIR)/%.o: %.c
 run:
 	./sort --help
 
-test:
+test: assemblylib bin/test
+	bin/test
 
-	g++ test_lib/test.cpp -o test -lgtest  -pthread
-	./test
+assemblylib: 
+	$(CC) -std=c++11 -isystem ${GDIR}/include -I ${GDIR} -pthread -c ${GDIR}/src/gtest-all.cc -o build/gtest-all.o
+	
+	ar -rv build/libgtest.a build/gtest-all.o
+
+bin/test:  build/test.o
+	$(CC) -std=c++11 -isystem ${GDIR}/include -pthread $^ build/libgtest.a -o bin/test
+
+build/test.o:
+	$(CC) -std=c++11 $(flags) test-cover/test.cpp -I $(GDIR)/include -o $@
 
 clean:
 	$(RM) obj/src/libsort/*.o
@@ -70,3 +80,4 @@ clean:
 	$(RM) bin/*.exe
 	$(RM) sort
 	$(RM) test
+	$(RM) test.d
